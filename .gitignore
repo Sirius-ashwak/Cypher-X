@@ -112,3 +112,4 @@ logs/
 # Temporary files
 tmp/
 temp/
+.bolt
