@@ -1,10 +1,23 @@
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import IntroPage from './pages/IntroPage';
+import Dashboard from './pages/Dashboard';
+import AgentUI from './pages/AgentUI';
+import Settings from './pages/Settings';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <p>Start prompting (or editing) to see magic happen :)</p>
-    </div>
+    <Router>
+      <div className="bg-black text-white min-h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<IntroPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/agent" element={<AgentUI />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

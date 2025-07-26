@@ -1,19 +1,19 @@
 import { Agent } from '@mastra/core';
 import { openai } from '@ai-sdk/openai';
-import { cypherWorkflow } from '../workflows/cypherWorkflow.js';
-import { vincentSwapTool } from '../tools/vincentSwapTool.js';
-import { logger } from '../../utils/logger.js';
+import { tradingTool } from '../tools/tradingTool';
+import { logger } from '../../utils/logger';
+import type { Agent as AgentType } from '@mastra/core';
 
 /**
  * CypherAgent - Autonomous Trading Agent for Autonomous Apes Hackathon
  * 
  * This agent represents the core intelligence of Project Cypher, designed to:
  * - Analyze market data using decentralized ML inference
- * - Execute trades through secure, policy-gated Vincent Tools
+ * - Execute trades through secure, policy-gated tools
  * - Operate autonomously within the Recall platform competition
  * - Maintain strict risk management through programmable guardrails
  */
-export const cypherAgent = new Agent({
+export const cypherAgent: AgentType<any, any, any> = new Agent({
   name: 'Cypher Trading Agent',
   instructions: `
     You are Project Cypher, an elite autonomous trading agent competing in the Autonomous Apes AI Agent Trading Hackathon. 
@@ -49,9 +49,8 @@ export const cypherAgent = new Agent({
   `,
   model: openai('gpt-4o-mini'),
   tools: {
-    vincentSwapTool,
+    tradingTool,
   },
-  workflow: cypherWorkflow,
 });
 
 // Initialize agent with logging

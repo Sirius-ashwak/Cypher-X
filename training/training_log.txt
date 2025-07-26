@@ -1,0 +1,18 @@
+2025-07-23 21:26:21,211 - INFO - ==================================================
+2025-07-23 21:26:21,212 - INFO - Project Cypher - LSTM Model Training
+2025-07-23 21:26:21,212 - INFO - ==================================================
+2025-07-23 21:26:21,213 - INFO - Initializing CypherLSTMTrainer
+2025-07-23 21:26:21,213 - INFO - Sequence length: 100
+2025-07-23 21:26:21,214 - INFO - Prediction horizon: 1
+2025-07-23 21:26:21,215 - INFO - Loading data from data/price_history.csv
+2025-07-23 21:26:21,236 - INFO - Loaded 120 data points
+2025-07-23 21:26:21,244 - INFO - After cleaning: 120 valid price points
+2025-07-23 21:26:21,245 - ERROR - Training failed: Insufficient data: 120 points, need at least 200
+2025-07-23 21:26:21,246 - ERROR - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\mohamed\OneDrive\Documents\LEARN\GOGLE DEV\Cypher-X1\Cypher-X\training\train_model.py", line 377, in main
+    data = trainer.load_and_preprocess_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mohamed\OneDrive\Documents\LEARN\GOGLE DEV\Cypher-X1\Cypher-X\training\train_model.py", line 102, in load_and_preprocess_data
+    raise ValueError(f"Insufficient data: {len(prices)} points, need at least {self.sequence_length + 100}")
+ValueError: Insufficient data: 120 points, need at least 200
